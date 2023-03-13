@@ -8,6 +8,7 @@ from typing import List
 import requests
 from slugify import slugify
 
+
 from utils.config import Config
 from utils.utils import FileUtils
 
@@ -84,7 +85,8 @@ class NotionUp:
         print(f"User id: {userId}")
 
         # list spaces
-        spaces = [(space_id, space_details["value"]["name"]) for (space_id, space_details) in userContent["space"].items()]
+        spaces = [(space_id, space_details["value"]["name"]) for (space_id, space_details) in
+                  userContent["space"].items()]
         print("Available spaces total: {}".format(len(spaces)))
         for (spaceId, spaceName) in spaces:
             print(f"\nexport space: {spaceId}, {spaceName}")
@@ -96,7 +98,7 @@ class NotionUp:
             print('download exported zip: {}, {}'.format(url, filename))
             filePath = NotionUp.downloadFile(url, filename)
             zips.append(filePath)
-            break
+
         return zips
 
     @staticmethod
@@ -113,9 +115,9 @@ class NotionUp:
         except Exception as e:
             print(f'{filePath} unzip fail,{str(e)}')
 
+
     @staticmethod
     def unzip():
         for file in Config.zip_files():
             print('unzip exported zip: {}'.format(file))
             NotionUp.unzipFile(file)
-
