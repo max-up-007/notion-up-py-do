@@ -31,7 +31,7 @@ jobs:
 
       - name: Run backup script
         run: |
-            python3 -m pip3 install -r requirements.txt
+            python -m pip install -r requirements.txt
             python main.py \
                --token_v2 ${secrets.NOTION_TOKEN} \
                --action "export"
