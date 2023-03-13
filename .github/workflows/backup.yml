@@ -33,7 +33,7 @@ jobs:
         run: |
             python -m pip install -r requirements.txt
             python main.py \
-               --token_v2 ${secrets.NOTION_TOKEN} \
+               --token_v2 ${{secrets.NOTION_TOKEN}} \
                --action "export"
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
