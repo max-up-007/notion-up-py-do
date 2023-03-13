@@ -35,11 +35,10 @@ jobs:
             python main.py \
                --token_v2 ${secrets.NOTION_TOKEN} \
                --action "export"
-
         env:
-#           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
-#           NOTION_SPACE_ID: ${{ secrets.NOTION_SPACE_ID }}
-#           NOTION_USER_ID: ${{ secrets.NOTION_USER_ID }}
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_SPACE_ID: ${{ secrets.NOTION_SPACE_ID }}
+          NOTION_USER_ID: ${{ secrets.NOTION_USER_ID }}
 
       - name: Checkout backup repo
         uses: actions/checkout@v3
